@@ -1,0 +1,41 @@
+local Key = "bpPazkwYWtDmV729wUtuhEFC"
+local Players = game:GetService("Players")
+
+function loadscript()
+    -- Put Script Here
+end
+
+function whitelist()
+    rconsolename("ENTER SCRIPT NAME")
+    rconsoleinfo("Could not a find saved key in your folders.")
+    rconsoleinfo("Please input the key")
+    if rconsoleinput() == Key then
+       wait(1)
+       rconsoleinfo("Correct Key.. Launching in 3")
+       wait(1)
+       rconsoleinfo("Correct Key.. Launching in 2")
+       wait(1)
+       rconsoleinfo("Correct Key.. Launching in 1")
+       wait(1)
+       rconsoleinfo("Script launched.")
+       loadscript()
+       writefile("ScriptKey.lua", zhkey)
+       wait(3)
+       rconsoleclear()
+       return true
+    else
+       rconsoleinfo("Incorrect Key.. Relaunch script to continue.")
+       wait(3)
+       rconsoleclear()
+       return false
+    end
+end
+if isfile("ScriptKey.lua") then
+    if readfile("ScriptKey.lua") == Key then
+        loadscript() 
+        else
+            whitelist()
+    end
+else
+        whitelist()
+end
